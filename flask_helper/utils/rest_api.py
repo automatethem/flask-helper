@@ -26,12 +26,23 @@ def preprocess(d):
         d_[key] = value
     return d_
 
+def image_to_base64(image):
+    bytesIO = io.BytesIO()
+    try:
+        image.save(bytesIO, "JPEG")
+    except:
+        image.save(bytesIO, "PNG")
+    b64encoded = base64.b64encode(bytesIO.getvalue())
+    base64_str = b64encoded.decode("utf-8")
+    return base64_str
+
 def postprocess(d):
     d_ = {}
     for key in d:
         value = d[key]
         #'''
         if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>": 
+            '''
             bytesIO = io.BytesIO()
             try:
                 value.save(bytesIO, "JPEG")
@@ -39,6 +50,8 @@ def postprocess(d):
                 value.save(bytesIO, "PNG")
             b64encoded = base64.b64encode(bytesIO.getvalue())
             value = b64encoded.decode("utf-8")
+            '''
+            value = image_to_base64(value)
         #'''
         d_[key] = value
     return d_
