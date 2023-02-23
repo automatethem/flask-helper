@@ -27,7 +27,10 @@ def postprocess(d):
         #'''
         if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>": 
             bytesIO = io.BytesIO()
-            value.save(bytesIO, "PNG")
+            try:
+                value.save(bytesIO, "JPEG")
+            except:
+                value.save(bytesIO, "PNG")
             b64encoded = base64.b64encode(bytesIO.getvalue())
             value = b64encoded.decode("utf-8")
         #'''
