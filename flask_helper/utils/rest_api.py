@@ -3,6 +3,7 @@ import json
 import base64
 import io
 from PIL import Image
+import re
 
 def preprocess(d):
     #print(d['file']) #iVBORw...w9RndTMZLiy1AAAAABJRU5ErkJggg==
@@ -11,8 +12,13 @@ def preprocess(d):
     for key in d:
         value = d[key]
         #'''
-        if value.endswith('=') : #Image
-        #if True : #Image
+        if value.startswith('data:') : #Image
+            #'''
+            #print(value) #data:image/jpeg;base64,/9j/4TT...
+            value = value.replace("data:", "") #data url 부분 제거
+            value = re.sub('^.+,', '', value) 
+            #print(value) #/9j/4TT...
+            #'''
             bytes = base64.b64decode(value) 
             bytesIO = io.BytesIO(bytes)
             value = Image.open(bytesIO)
