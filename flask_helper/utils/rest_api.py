@@ -11,8 +11,8 @@ def preprocess(d):
     for key in d:
         value = d[key]
         #'''
-        #if value.endswith('=') : #Image
-        if True : #Image
+        if value.endswith('=') : #Image
+        #if True : #Image
             bytes = base64.b64decode(value) 
             bytesIO = io.BytesIO(bytes)
             value = Image.open(bytesIO)
