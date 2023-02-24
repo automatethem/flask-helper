@@ -67,13 +67,14 @@ def postprocess(d):
 
 def rest_api(request, predict_function):
     d = request.get_json()
-    #d = {'a': 1, 'b': 2}
-    
-    d = preprocess(d)
-    #print(d) #{'file': <PIL.PngImagePlugin.PngImageFile image mode=RGBA size=561x561 at 0x7F8457E79A30>}
-    d = predict_function(**d)
-    d = postprocess(d)
-    #d['image'] = d['file']
-
-    j = json.dumps(d)
+    data = d['data']
+    #print(data) #[{'a': 1, 'b': 2}]
+    examples = []
+    for example in data:
+        example = preprocess(example)
+        #print(example) #{'file': <PIL.PngImagePlugin.PngImageFile image mode=RGBA size=561x561 at 0x7F8457E79A30>}
+        example = predict_function(**example)
+        example = postprocess(example)
+        examples.append(examples)
+    j = json.dumps({'data': examples})
     return j
