@@ -1,3 +1,4 @@
+'''
 !pip install flask-supporter
 #인증 토큰 가져오기
 #https://dashboard.ngrok.com/get-started/setup
@@ -5,7 +6,7 @@
 '''
 import flask_supporter
 import pathlib
-from lib_pipeline import TabularRegressionPipeLine
+from .lib_pipeline import TabularRegressionPipeLine
 
 model_path = 'automatethem-com/son-height-tabular-regression-scikit-learn'
 p = TabularRegressionPipeLine.from_pretrained(model_path)
@@ -14,12 +15,10 @@ try:
     blueprint_file_path = __file__
 except:
     blueprint_file_path = None
-rest_api = flask_supporter.rest_api.RestAPI(blueprint_file_path, ngrok=False, enable_blueprint_test=True)
+rest_api = flask_supporter.rest_api.RestAPI(blueprint_file_path, ngrok=True, enable_blueprint_test=True)
 
 def index():
     return '''
-</pre>
-<xmp>
 <html>
     <head>
         <meta charset="utf-8">
@@ -71,14 +70,12 @@ $('#form').submit((event) => {
         </script>
     </body>
 </html>
-</xmp>
-<pre>
     '''.replace('{{api_url}}', rest_api.api_url)
 
 #REST API 송신 데이터 예: {"data": [{"x": "175"}]}
 #REST API 수신 데이터 예: {"data": [{"logit": 175.99442286524624}]}
 def api(x):
-    #print(x) #175.0 
+    #print(x) #175.0
     #print(type(x)) #<class 'float'>
     x = [
         [x]
