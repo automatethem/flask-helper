@@ -7,7 +7,7 @@ def requirements():
 
 setuptools.setup(
 	name='flask-supporter',
-	version='0.0.1',
+	version='0.0.2',
 	description='Flask supporter',
 	long_description=open('README.md').read(),
 	author='Sang Ki Kwon',
