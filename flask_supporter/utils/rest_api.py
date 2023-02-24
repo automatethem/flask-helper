@@ -66,8 +66,8 @@ def postprocess(d):
     return d_
 
 def rest_api(request, predict_function):
-    d = request.get_json()
-    data = d['data']
+    payload = request.get_json()
+    data = payload['data']
     #print(data) #[{'a': 1, 'b': 2}]
     examples = []
     for example in data:
