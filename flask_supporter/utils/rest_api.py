@@ -18,18 +18,14 @@ def preprocess(d):
     d_ = {}
     for key in d:
         value = d[key]
-        #'''
         if value.startswith('data:') : #Image
-            #'''
             #print(value) #data:image/jpeg;base64,/9j/4TT...
             value = value.replace("data:", "") #data url 부분 제거
             value = re.sub('^.+,', '', value) 
             #print(value) #/9j/4TT...
-            #'''
             bytes = base64.b64decode(value) 
             bytesIO = io.BytesIO(bytes)
             value = Image.open(bytesIO)
-        #'''
         elif is_float(value):
             value = float(value)
         d_[key] = value
@@ -49,19 +45,8 @@ def postprocess(d):
     d_ = {}
     for key in d:
         value = d[key]
-        #'''
         if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>": 
-            '''
-            bytesIO = io.BytesIO()
-            try:
-                value.save(bytesIO, "JPEG")
-            except:
-                value.save(bytesIO, "PNG")
-            b64encoded = base64.b64encode(bytesIO.getvalue())
-            value = b64encoded.decode("utf-8")
-            '''
             value = image_to_base64(value)
-        #'''
         d_[key] = value
     return d_
 
