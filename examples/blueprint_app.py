@@ -6,7 +6,7 @@
 '''
 import flask_supporter
 import pathlib
-from .lib_pipeline import TabularRegressionPipeLine
+from lib_pipeline import TabularRegressionPipeLine
 
 model_path = 'automatethem-com/son-height-tabular-regression-scikit-learn'
 p = TabularRegressionPipeLine.from_pretrained(model_path)
