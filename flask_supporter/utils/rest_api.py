@@ -5,6 +5,13 @@ import io
 from PIL import Image
 import re
 
+def is_float(number):
+    try:
+        float(number)
+        return True
+    except ValueError:
+        return False
+
 def preprocess(d):
     #print(d['file']) #iVBORw...w9RndTMZLiy1AAAAABJRU5ErkJggg==
     #print(type(d['file'])) #<class 'str'>
@@ -23,6 +30,8 @@ def preprocess(d):
             bytesIO = io.BytesIO(bytes)
             value = Image.open(bytesIO)
         #'''
+        elif is_float(value):
+            value = float(value)
         d_[key] = value
     return d_
 
