@@ -7,7 +7,7 @@ def requirements():
 
 setuptools.setup(
 	name='flask-supporter',
-	version='0.0.5',
+	version='0.0.6',
 	description='Flask supporter',
 	long_description=open('README.md').read(),
 	long_description_content_type='text/markdown',
