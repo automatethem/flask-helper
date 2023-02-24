@@ -6,12 +6,12 @@ def requirements():
         return f.read().splitlines()
 
 setuptools.setup(
-	name='flask-helper',
+	name='flask-supporter',
 	version='0.0.1',
-	description='Flask helper',
+	description='Flask supporter',
 	long_description=open('README.md').read(),
 	author='Sang Ki Kwon',
-	url='https://github.com/automatethem/flask-helper',
+	url='https://github.com/automatethem/flask-supporter',
 	install_requires=requirements(),
 	author_email='automatethem@gmail.com',
 	license='MIT',
