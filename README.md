@@ -1,7 +1,7 @@
 # flask-supporter
 
 Supported APIs
-<xmp>
+<pre>
 '''
 !pip install flask-supporter
 #인증 토큰 가져오기
@@ -23,6 +23,8 @@ rest_api = flask_supporter.rest_api.RestAPI(blueprint_file_path, ngrok=False, en
 
 def index():
     return '''
+</pre>
+<xmp>
 <html>
     <head>
         <meta charset="utf-8">
@@ -74,6 +76,8 @@ $('#form').submit((event) => {
         </script>
     </body>
 </html>
+</xmp>
+<pre>
     '''.replace('{{api_url}}', rest_api.api_url)
 
 def api(x):
@@ -91,4 +95,4 @@ def api(x):
     return output
 
 app = rest_api.get_app(index, api)
-</xmp>
+</pre>
