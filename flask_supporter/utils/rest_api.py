@@ -56,11 +56,16 @@ class RestAPI():
         def api():
             return self.predict(request, api_function)
     
+        '''
         if __name__ == "__main__":
             if self.ngrok:
                 flask_ngrok.run_with_ngrok(app)
                 app.run()
-    
+        '''
+        if self.ngrok:
+            flask_ngrok.run_with_ngrok(app)
+            app.run()
+            
         return app
 
     def is_float(self, number):
