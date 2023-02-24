@@ -10,6 +10,7 @@ setuptools.setup(
 	version='0.0.2',
 	description='Flask supporter.',
 	long_description=open('README.md').read(),
+	long_description_content_type='text/markdown',
 	author='Sang Ki Kwon',
 	url='https://github.com/automatethem/flask-supporter',
 	install_requires=requirements(),
