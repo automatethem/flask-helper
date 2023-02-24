@@ -23,16 +23,14 @@ def image_to_base64(image):
 class RestAPI():
     def __init__(self, ngrok=True, enable_blueprint_test=True):
         super().__init__()
-        self.MODE_NGROK_FLASK = 1
-        self.MODE_BLUEPRINT = 2
-        self.MODE = self.MODE_BLUEPRINT
-        self.ENABLE_BLUEPRINT_TEST = True
+        self.ngrok = ngrok
+        self.enable_blueprint_test = enable_blueprint_test
 
-        if self.MODE == self.MODE_NGROK_FLASK:
+        if ngrok:
             self.app = Flask(__name__)
             self.index_url = '/'
             self.api_url = '/api'
-        elif self.MODE == self.MODE_BLUEPRINT:
+        else:
             self.folder_name = pathlib.Path(__file__).parts[-2]
             #print(self.folder_name) #son_height_tabular_regression_scikit_learn
             self.folder_name = self.folder_name.replace('_', '-')
@@ -44,12 +42,12 @@ class RestAPI():
         return self.index_url, self.api_url
         
     def get_app(self, index_function, api_function):
-        if self.MODE == self.MODE_NGROK_FLASK:
+        if self.ngrok:
             app = Flask(__name__)
-        elif self.MODE == self.MODE_BLUEPRINT:
+        else:
             app = Blueprint(self.folder_name, __name__)
     
-        if self.MODE == self.MODE_NGROK_FLASK or (self.MODE == self.MODE_BLUEPRINT and self.ENABLE_BLUEPRINT_TEST):
+        if self.ngrok or (not self.ngrok and self.enable_blueprint_test):
             @app.route(self.index_url)
             def index():
                 return index_function()
@@ -59,7 +57,7 @@ class RestAPI():
             return self.predict(request, api_function)
     
         if __name__ == "__main__":
-            if self.MODE == self.MODE_NGROK_FLASK:
+            if self.ngrok:
                 flask_ngrok.run_with_ngrok(app)
                 app.run()
     
