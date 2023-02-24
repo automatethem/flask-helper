@@ -41,7 +41,7 @@ class RestAPI():
 
     def get_app(self, index_function, api_function):
         if self.ngrok:
-            app = Flask(self.folder_name)
+            app = Flask(__name__)
         else:
             app = Blueprint(self.folder_name, self.folder_name)
 
