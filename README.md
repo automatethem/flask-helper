@@ -16,7 +16,7 @@ index
 '''
 #https://dashboard.ngrok.com/get-started/setup
 !pip install pyngrok
-!pip install flask_ngrok
+!pip install flask-ngrok
 !pip install flask-supporter
 !ngrok authtoken YOUR_AUTH_TOKEN
 '''
