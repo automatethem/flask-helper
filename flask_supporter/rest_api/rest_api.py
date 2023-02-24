@@ -20,17 +20,16 @@ def image_to_base64(image):
     return base64_str
 
 class RestAPI():
-    def __init__(self, ngrok=True, enable_blueprint_test=True):
+    def __init__(self, blueprint_file_path, ngrok=True, enable_blueprint_test=True):
         super().__init__()
         self.ngrok = ngrok
         self.enable_blueprint_test = enable_blueprint_test
 
         if ngrok:
-            self.app = Flask(__name__)
             self.index_url = '/'
             self.api_url = '/api'
         else:
-            self.folder_name = pathlib.Path(__file__).parts[-2]
+            self.folder_name = pathlib.Path(blueprint_file_path).parts[-2]
             #print(self.folder_name) #son_height_tabular_regression_scikit_learn
             self.folder_name = self.folder_name.replace('_', '-')
             #print(self.folder_name) #son-height-tabular-regression-scikit-learn
@@ -42,9 +41,9 @@ class RestAPI():
 
     def get_app(self, index_function, api_function):
         if self.ngrok:
-            app = Flask(__name__)
+            app = Flask(self.folder_name)
         else:
-            app = Blueprint(self.folder_name, __name__)
+            app = Blueprint(self.folder_name, self.folder_name)
 
         if self.ngrok or (not self.ngrok and self.enable_blueprint_test):
             @app.route(self.index_url)
