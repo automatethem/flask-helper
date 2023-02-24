@@ -65,7 +65,7 @@ class RestAPI():
     
         return app
 
-    def self.is_float(self, number):
+    def is_float(self, number):
         try:
             float(number)
             return True
