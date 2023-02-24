@@ -36,25 +36,25 @@ class RestAPI():
             #print(self.folder_name) #son-height-tabular-regression-scikit-learn
             self.index_url = f'/{self.folder_name}/'
             self.api_url = f'/{self.folder_name}/api'
-            
+
     def get_urls(self):
         return self.index_url, self.api_url
-        
+
     def get_app(self, index_function, api_function):
         if self.ngrok:
             app = Flask(__name__)
         else:
             app = Blueprint(self.folder_name, __name__)
-    
+
         if self.ngrok or (not self.ngrok and self.enable_blueprint_test):
             @app.route(self.index_url)
             def index():
                 return index_function()
-            
+
         @app.route(self.api_url, methods=['post'])
         def api():
             return self.predict(request, api_function)
-    
+
         '''
         if __name__ == "__main__":
             if self.ngrok:
@@ -64,7 +64,7 @@ class RestAPI():
         if self.ngrok:
             flask_ngrok.run_with_ngrok(app)
             app.run()
-            
+
         return app
 
     def is_float(self, number):
@@ -83,9 +83,9 @@ class RestAPI():
             if value.startswith('data:') : #Image
                 #print(value) #data:image/jpeg;base64,/9j/4TT...
                 value = value.replace("data:", "") #data url 부분 제거
-                value = re.sub('^.+,', '', value) 
+                value = re.sub('^.+,', '', value)
                 #print(value) #/9j/4TT...
-                bytes = base64.b64decode(value) 
+                bytes = base64.b64decode(value)
                 bytesIO = io.BytesIO(bytes)
                 value = Image.open(bytesIO)
             elif self.is_float(value):
@@ -97,7 +97,7 @@ class RestAPI():
         d_ = {}
         for key in d:
             value = d[key]
-            if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>": 
+            if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>":
                 value = image_to_base64(value)
             d_[key] = value
         return d_
