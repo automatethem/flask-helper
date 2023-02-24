@@ -75,6 +75,8 @@ $('#form').submit((event) => {
 <pre>
     '''.replace('{{api_url}}', rest_api.api_url)
 
+#송신 데이터 예: {"data": [{"x": "175"}]}
+#수신 데이터 예: {"data": [{"logit": 175.99442286524624}]}
 def api(x):
     #print(x) #175.0
     #print(type(x)) #<class 'float'>
