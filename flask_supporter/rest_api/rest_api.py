@@ -93,13 +93,26 @@ class RestAPI():
         return d_
 
     def postprocess(self, d):
-        d_ = {}
-        for key in d:
-            value = d[key]
-            if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>":
-                value = image_to_base64(value)
-            d_[key] = value
-        return d_
+        if isinstance(d, dict):
+            d_ = {}
+            for key in d:
+                value = d[key]
+                if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>":
+                    value = image_to_base64(value)
+                d_[key] = value
+            return d_
+        elif isinstance(d, list):
+            l = d
+            l_ = []
+            for d in l:
+                d_ = {}
+                for key in d:
+                    value = d[key]
+                    if str(type(value)) == "<class 'PIL.PngImagePlugin.PngImageFile'>":
+                        value = image_to_base64(value)
+                    d_[key] = value
+                l_.append(d_)
+            return l_
 
     def predict(self, request, predict_function):
         payload = request.get_json()
