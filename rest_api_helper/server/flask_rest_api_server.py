@@ -19,7 +19,7 @@ def image_to_base64(image):
     base64_str = b64encoded.decode("utf-8")
     return base64_str
 
-class RestAPI():
+class FlaskRestAPIServer():
     def __init__(self, blueprint_file_path, ngrok=True, enable_blueprint_test=True):
         super().__init__()
         self.ngrok = ngrok
