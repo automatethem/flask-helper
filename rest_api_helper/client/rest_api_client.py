@@ -10,3 +10,7 @@ def image_to_base64(image):
     b64encoded = base64.b64encode(bytesIO.getvalue())
     base64_str = b64encoded.decode("utf-8")
     return base64_str
+
+def query():
+    
+    
