@@ -5,19 +5,9 @@ from flask import Blueprint
 import pathlib
 import json
 import base64
-import io
 from PIL import Image
 import re
-
-def image_to_base64(image):
-    bytesIO = io.BytesIO()
-    try:
-        image.save(bytesIO, "JPEG")
-    except:
-        image.save(bytesIO, "PNG")
-    b64encoded = base64.b64encode(bytesIO.getvalue())
-    base64_str = b64encoded.decode("utf-8")
-    return base64_str
+from ..client.rest_api_client import image_to_base64
 
 class FlaskRestAPIServer():
     def __init__(self, blueprint_file_path, ngrok=True, enable_blueprint_test=True):
