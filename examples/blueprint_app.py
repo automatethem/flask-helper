@@ -15,7 +15,7 @@ try:
     blueprint_file_path = __file__
 except:
     blueprint_file_path = None
-flask_server = rest_api_helper.servers.FlaskServer(blueprint_file_path, ngrok=True, enable_blueprint_test=True)
+flask_rest_api_server = rest_api_helper.servers.flask_rest_api_server(blueprint_file_path, ngrok=True, enable_blueprint_test=True)
 
 def index():
     return '''
@@ -70,7 +70,7 @@ $('#form').submit((event) => {
         </script>
     </body>
 </html>
-    '''.replace('{{api_url}}', flask_server.api_url)
+    '''.replace('{{api_url}}', flask_rest_api_server.api_url)
 
 #REST API 송신 데이터 예: {"data": [{"x": "175"}]}
 #REST API 수신 데이터 예: {"data": [{"logit": 175.99442286524624}]}
@@ -89,4 +89,4 @@ def api(x):
     #print(output) #{'logit': 170.46931035654347}
     return output
 
-app = flask_server.get_app(index, api)
+app = flask_rest_api_server.get_app(index, api)
