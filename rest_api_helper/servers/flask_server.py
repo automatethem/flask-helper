@@ -7,9 +7,9 @@ import json
 import base64
 from PIL import Image
 import re
-from ..client.rest_api_client import image_to_base64
+from ..utils import image_to_base64
 
-class FlaskRestAPIServer():
+class FlaskServer():
     def __init__(self, blueprint_file_path, ngrok=True, enable_blueprint_test=True):
         super().__init__()
         self.ngrok = ngrok
