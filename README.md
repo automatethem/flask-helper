@@ -1,5 +1,5 @@
-# flask-supporter
+# rest-api-helper
 
 REST API example  
-https://github.com/automatethem/flask-supporter/blob/main/examples/blueprint_app.py
+https://github.com/automatethem/rest-api-helper/blob/main/examples/blueprint_app.py
 
