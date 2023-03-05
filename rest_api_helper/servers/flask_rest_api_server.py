@@ -9,7 +9,7 @@ from PIL import Image
 import re
 from ..utils import image_to_base64
 
-class FlaskServer():
+class FlaskRestAPIServer():
     def __init__(self, blueprint_file_path, ngrok=True, enable_blueprint_test=True):
         super().__init__()
         self.ngrok = ngrok
