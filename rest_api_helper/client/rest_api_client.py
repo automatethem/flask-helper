@@ -11,6 +11,7 @@ def image_to_base64(image):
     base64_str = b64encoded.decode("utf-8")
     return base64_str
 
-def query():
-    
-    
+def query(url, json=None, data=None, timeout=60):
+    response = requests.post(url, json=json, data=data, timeout=timeout)
+    outputs = response.json()
+    retirm outputs
