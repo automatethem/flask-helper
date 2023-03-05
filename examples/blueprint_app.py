@@ -4,7 +4,7 @@
 #https://dashboard.ngrok.com/get-started/setup
 !ngrok authtoken YOUR_AUTH_TOKEN
 '''
-import flask_supporter
+import rest_api_helper
 import pathlib
 #from lib_pipeline import TabularRegressionPipeLine
 
