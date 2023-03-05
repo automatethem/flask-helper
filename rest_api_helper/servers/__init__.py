@@ -1,3 +1,3 @@
-from . import flask_server
+from . import flask_rest_api_server
 
-from .flask_server import FlaskServer
+from .flask_rest_api_server import FlaskRestAPIServer
