@@ -1,3 +1,3 @@
-from . import flask_rest_api_server
+from . import rest_api_client
 
 from .rest_api_client import image_to_base64
