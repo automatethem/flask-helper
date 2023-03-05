@@ -1,6 +1,5 @@
 import io
 import base64
-import requests
 
 def image_to_base64(image):
     bytesIO = io.BytesIO()
