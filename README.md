@@ -4,7 +4,7 @@ Supported APIs
 <pre>
 import rest_api_helper
 
-rest_api_helper.servers.FlaskServer
+rest_api_helper.servers.FlaskRestAPIServer
 rest_api_helper.utils.image_to_base64
 rest_api_helper.utils.query
 </pre>
