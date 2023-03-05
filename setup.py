@@ -6,13 +6,13 @@ def requirements():
         return f.read().splitlines()
 
 setuptools.setup(
-	name='flask-supporter',
-	version='0.0.16',
-	description='Flask supporter',
+	name='rest-api-helper',
+	version='0.0.1',
+	description='Rest api helper',
 	long_description=open('README.md').read(),
 	long_description_content_type='text/markdown',
 	author='Sang Ki Kwon',
-	url='https://github.com/automatethem/flask-supporter',
+	url='https://github.com/automatethem/rest-api-helper',
 	install_requires=requirements(),
 	author_email='automatethem@gmail.com',
 	license='MIT',
