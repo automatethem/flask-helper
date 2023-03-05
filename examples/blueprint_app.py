@@ -15,7 +15,7 @@ try:
     blueprint_file_path = __file__
 except:
     blueprint_file_path = None
-flask_rest_api_server = rest_api_helper.servers.flask_rest_api_server(blueprint_file_path, ngrok=True, enable_blueprint_test=True)
+flask_rest_api_server = rest_api_helper.servers.FlaskRestAPIServer(blueprint_file_path, ngrok=True, enable_blueprint_test=True)
 
 def index():
     return '''
