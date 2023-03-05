@@ -1,4 +1,4 @@
 from . import rest_api
 
-from .rest_api import image_to_base64
-from .rest_api import FlaskRestAPIServer
+from .flask_rest_api_server import image_to_base64
+from .flask_rest_api_server import FlaskRestAPIServer
