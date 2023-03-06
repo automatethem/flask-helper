@@ -4,7 +4,7 @@
 #https://dashboard.ngrok.com/get-started/setup
 !ngrok authtoken YOUR_AUTH_TOKEN
 '''
-import rest_api_helper
+import rest_api_supporter
 import pathlib
 #from lib_pipeline import TabularRegressionPipeLine
 
@@ -15,7 +15,7 @@ try:
     blueprint_file_path = __file__
 except:
     blueprint_file_path = None
-flask_rest_api_server = rest_api_helper.servers.FlaskRestAPIServer(blueprint_file_path, ngrok=True, enable_blueprint_test=True)
+flask_rest_api_server = rest_api_supporter.servers.FlaskRestAPIServer(blueprint_file_path, ngrok=True, enable_blueprint_test=True)
 
 def index():
     return '''
