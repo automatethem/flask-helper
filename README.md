@@ -10,5 +10,5 @@ rest_api_supporter.utils.query
 </pre>
 
 REST API example (flask)  
-https://github.com/automatethem/rest-api-supporter/blob/main/examples/blueprint_app.py
-
+https://github.com/automatethem/rest-api-supporter/blob/main/examples/blueprint_app.py  
+https://github.com/automatethem/rest-api-supporter/blob/main/examples/predict.py
