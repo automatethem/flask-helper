@@ -7,7 +7,7 @@ def requirements():
 
 setuptools.setup(
 	name='rest-api-supporter',
-	version='0.0.1',
+	version='0.0.2',
 	description='Rest api supporter',
 	long_description=open('README.md').read(),
 	long_description_content_type='text/markdown',
