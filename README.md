@@ -11,6 +11,7 @@ import rest_api_supporter
 
 rest_api_supporter.servers.FlaskRestAPIServer
 rest_api_supporter.utils.image_to_base64
+rest_api_supporter.utils.base64_to_image
 rest_api_supporter.utils.query
 </pre>
 
