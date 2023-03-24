@@ -10,3 +10,4 @@ def base64_to_image(value):
     bytes = base64.b64decode(value)
     bytesIO = io.BytesIO(bytes)
     value = Image.open(bytesIO)
+    return value
