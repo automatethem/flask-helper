@@ -8,6 +8,7 @@ import base64
 from PIL import Image
 import re
 from ..utils import image_to_base64
+from ..utils import base64_to_image
 
 class FlaskRestAPIServer():
     def __init__(self, blueprint_file_path, ngrok=True, enable_blueprint_test=True):
@@ -70,6 +71,7 @@ class FlaskRestAPIServer():
         for key in d:
             value = d[key]
             if value.startswith('data:') : #Image
+                '''
                 #print(value) #data:image/jpeg;base64,/9j/4TT...
                 value = value.replace("data:", "") #data url 부분 제거
                 value = re.sub('^.+,', '', value)
@@ -77,6 +79,10 @@ class FlaskRestAPIServer():
                 bytes = base64.b64decode(value)
                 bytesIO = io.BytesIO(bytes)
                 value = Image.open(bytesIO)
+                '''
+                #'''
+                value = base64_to_image(value)
+                #'''
             elif self.is_float(value):
                 value = float(value)
             d_[key] = value
