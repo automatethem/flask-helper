@@ -12,7 +12,8 @@ import rest_api_supporter
 rest_api_supporter.servers.FlaskRestAPIServer
 rest_api_supporter.utils.image_to_base64
 rest_api_supporter.utils.base64_to_image
-rest_api_supporter.utils.query
+rest_api_supporter.utils.post
+rest_api_supporter.utils.get
 </pre>
 
 REST API example (flask)  
