@@ -12,7 +12,7 @@ def base64_decode(base64):
             image = Image.open(decoded)
             #print(image) #<PIL.PngImagePlugin.PngImageFile image mode=RGBA size=386x262 at 0x1074728F0>
             return image
-        elif "autio" in front:
+        elif "audio" in front:
             return decoded
     else:
         image = Image.open(decoded)
