@@ -1,9 +1,9 @@
 # rest-api-supporter
 
 https://pypi.org/project/rest-api-supporter/
-<pre>
+```
 pip install rest-api-supporter
-</pre>
+```
 
 Supported APIs  
 ```
