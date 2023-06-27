@@ -12,7 +12,7 @@ print(type(base64_decoded)) #<class 'PIL.JpegImagePlugin.JpegImageFile'>
                             #<class 'PIL.JpegImagePlugin.JpegImageFile'>
 '''
 def base64_decode(full_encoded):
-    if "base64," in full_encoded:
+    if isinstance(full_encoded, str) and "base64," in full_encoded:
         #print(full_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
         front = full_encoded.split('base64,')[0]
