@@ -29,16 +29,18 @@ base64 = base64_encode(audio)
 print(base64) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
 '''
 def base64_encode(bytes):
-    if isinstance(image, Image):
-        bytesIO = io.BytesIO()
-        try:
-            image.save(bytesIO, "JPEG")
-        except:
-            image.save(bytesIO, "PNG")
-        bytes = bytesIO.getvalue()
+    if isinstance(bytes, Image):
+        bytes_io = io.BytesIO()
+        #try:
+        #    image.save(bytes_io, "JPEG")
+        #except:
+        #    image.save(bytes_io, "PNG")
+        bytes.save(bytes_io, bytes.format)
+        bytes = bytes_io.getvalue()
     base64_encoded = base64.b64encode(bytes)
     base64_encoded = base64_encoded.decode("utf-8")
     if isinstance(image, Image):    
-        return "data:image/png;base64,"+base64_encoded
+        #return "data:image/png;base64,"+base64_encoded
+        return "data:image/"+bytes.format.lower()+";base64,"+base64_encoded
     else:    
         return "data:audio/wav;base64,"+base64_encoded
