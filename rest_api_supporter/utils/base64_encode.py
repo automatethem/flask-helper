@@ -36,9 +36,9 @@ def base64_encode(bytes):
         except:
             image.save(bytesIO, "PNG")
         bytes = bytesIO.getvalue()
-    encoded = base64.b64encode(bytes)
-    encoded = encoded.decode("utf-8")
+    base64_encoded = base64.b64encode(bytes)
+    base64_encoded = base64_encoded.decode("utf-8")
     if isinstance(image, Image):    
-        return "data:image/png;base64,"+encoded
+        return "data:image/png;base64,"+base64_encoded
     else:    
-        return "data:audio/wav;base64,"+encoded
+        return "data:audio/wav;base64,"+base64_encoded
