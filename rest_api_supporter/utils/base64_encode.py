@@ -39,7 +39,7 @@ def base64_encode(bytes):
         bytes = bytes_io.getvalue()
     base64_encoded = base64.b64encode(bytes)
     base64_encoded = base64_encoded.decode("utf-8")
-    if isinstance(image, Image):    
+    if isinstance(bytes, Image):    
         #return "data:image/png;base64,"+base64_encoded
         return "data:image/"+bytes.format.lower()+";base64,"+base64_encoded
     else:    
