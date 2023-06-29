@@ -16,16 +16,16 @@ def base64_decode(full_encoded):
         #print(full_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
         front = full_encoded.split('base64,')[0]
-        encoded = full_encoded.split('base64,')[1]
-        decoded = base64.b64decode(encoded)
+        base64_encoded = full_encoded.split('base64,')[1]
+        base64_decoded = base64.b64decode(base64_encoded)
         if "image" in front:
-            image = Image.open(io.BytesIO(decoded))
+            image = Image.open(io.BytesIO(base64_decoded))
             return image
         elif "audio" in front:
-            return decoded
+            return base64_decoded
     else:
         #print(full_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #UklGRiTuAgBXQVZFZm...At84WACNZGwA=
-        decoded = base64.b64decode(full_encoded)
-        image = Image.open(io.BytesIO(decoded))
+        base64_decoded = base64.b64decode(full_encoded)
+        image = Image.open(io.BytesIO(base64_decoded))
         return image
