@@ -17,9 +17,17 @@ def base64_encode(image):
     return base64_str
 '''
 
-#image = Image.open("rock.jpg")
-#base64 = base64_encode(image)
-#print(base64) #/9j/4AAQSkZJRgABAQAAA ... bSjrTEf/9k=
+'''
+image = Image.open("rock.jpg")
+base64 = base64_encode(image)
+print(base64) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
+                             
+'''
+'''
+
+base64 = base64_encode(audio)
+print(base64) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
+'''
 def base64_encode(bytes):
     if isinstance(image, Image):
         bytesIO = io.BytesIO()
