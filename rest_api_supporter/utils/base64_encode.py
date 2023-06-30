@@ -9,7 +9,10 @@ import os
 def base64_encode(image):
     if isinstance(image, Image.Image):
         bytes_io = io.BytesIO()
-        image.save(bytes_io, image.format)
+        image_format = image.format
+        if not image_format:
+            image_format = "PNG"
+        image.save(bytes_io, image_format)
         bytes = bytes_io.getvalue()
     elif isinstance(image, numpy.ndarray):
         '''
@@ -30,6 +33,6 @@ def base64_encode(image):
     base64_encoded = base64_encoded.decode("utf-8") 
     if isinstance(image, Image.Image):
         #return "data:image/png;base64,"+base64_encoded
-        return "data:image/"+image.format.lower()+";base64,"+base64_encoded
+        return "data:image/"+image_format.lower()+";base64,"+base64_encoded
     elif isinstance(image, numpy.ndarray): 
         return "data:audio/wav;base64,"+base64_encoded
