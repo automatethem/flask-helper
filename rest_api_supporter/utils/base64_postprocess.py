@@ -1,3 +1,9 @@
+from .base64_decode import base64_decode
+from .base64_encode import base64_encode
+import os
+from PIL import Image
+import numpy
+
 def base64_postprocess(prediction):
     if isinstance(prediction, list):
         for i, p in enumerate(prediction):
