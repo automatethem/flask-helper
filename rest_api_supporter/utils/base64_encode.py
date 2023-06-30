@@ -17,7 +17,7 @@ def base64_encode(image):
         f.close()
         '''
         #'''
-        wav_file = f"speech_{random.randint(1, 10)}.wav"
+        wav_file = f"speech_{random.randint(1, 10000)}.wav"
         try:
             sf.write(wav_file, image, samplerate=16000)
             with open(wav_file, "rb") as f:
