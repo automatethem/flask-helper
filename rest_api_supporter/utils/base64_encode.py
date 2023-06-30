@@ -7,7 +7,7 @@ import soundfile as sf
 import os
 
 def base64_encode(image):
-    if isinstance(image, Image.Image):
+    if isinstance(image, Image.Image): #이미지
         bytes_io = io.BytesIO()
         image_format = image.format
         if not image_format:
@@ -20,7 +20,7 @@ def base64_encode(image):
 
         #return "data:image/png;base64,"+base64_encoded
         return "data:image/"+image_format.lower()+";base64,"+base64_encoded
-    elif isinstance(image, bytes):
+    elif isinstance(image, bytes): #오디오
         bytes_value = image
 
         base64_encoded = base64.b64encode(bytes_value)
