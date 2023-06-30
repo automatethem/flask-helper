@@ -4,6 +4,7 @@ from PIL import Image
 import numpy
 import random
 import soundfile as sf
+import os
 
 def base64_encode(image):
     if isinstance(image, Image.Image):
