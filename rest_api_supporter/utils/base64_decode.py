@@ -2,15 +2,6 @@ import base64
 import io
 from PIL import Image
 
-'''
-#print(full_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
-                     #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
-                     #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
-base64_decoded = base64_decode(full_encoded)
-print(type(base64_decoded)) #<class 'PIL.JpegImagePlugin.JpegImageFile'>
-                            #<class 'bytes'>
-                            #<class 'PIL.JpegImagePlugin.JpegImageFile'>
-'''
 def base64_decode(full_encoded):
     if isinstance(full_encoded, str) and "base64," in full_encoded:
         #print(full_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
