@@ -16,9 +16,8 @@ def base64_encode(image):
         bytes = bytes_io.getvalue()
     elif isinstance(image, numpy.ndarray):
         '''
-        f=open("up.wav", "rb")
-        bytes = f.read()
-        f.close()
+        with open("up.wav", "rb") as f:
+            bytes = f.read()
         '''
         #'''
         wav_file = f"speech_{random.randint(1, 10000)}.wav"
