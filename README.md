@@ -4,10 +4,9 @@ https://pypi.org/project/rest-api-supporter/
 ```
 pip install rest-api-supporter
 ```
+## Supported APIs  
 
-Supported APIs  
-
-## base64 decode
+### base64 decode
 
 ```
 from rest_api_supporter.utils.base64_decode import base64_decode
@@ -21,7 +20,7 @@ print(type(base64_decoded)) #<class 'PIL.JpegImagePlugin.JpegImageFile'>
                             #<class 'PIL.JpegImagePlugin.JpegImageFile'>
 ```
 
-## base64 encode
+### base64 encode
 
 ```
 from PIL import Image
