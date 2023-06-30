@@ -1,4 +1,4 @@
-
+from .base64_decode import base64_decode
 
 def base64_preprocess(inputs):
     for k in inputs.keys():
