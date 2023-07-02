@@ -6,20 +6,6 @@ pip install rest-api-supporter
 ```
 ## Supported APIs  
 
-### base64 decode
-
-```
-from rest_api_supporter.utils.base64_decode import base64_decode
-
-print(full_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
-                     #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
-                     #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
-base64_decoded = base64_decode(full_encoded)
-print(type(base64_decoded)) #<class 'PIL.JpegImagePlugin.JpegImageFile'>
-                            #<class 'bytes'>
-                            #<class 'PIL.JpegImagePlugin.JpegImageFile'>
-```
-
 ### base64 encode
 
 ```
@@ -43,4 +29,18 @@ array = dataset[0]["audio"]["array"] #numpy array
 sampling_rate = 16000
 base64 = base64_encode(array) 
 print(base64) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
+```
+
+### base64 decode
+
+```
+from rest_api_supporter.utils.base64_decode import base64_decode
+
+print(full_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
+                     #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
+                     #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
+base64_decoded = base64_decode(full_encoded)
+print(type(base64_decoded)) #<class 'PIL.JpegImagePlugin.JpegImageFile'>
+                            #<class 'bytes'>
+                            #<class 'PIL.JpegImagePlugin.JpegImageFile'>
 ```
