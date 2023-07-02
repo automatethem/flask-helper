@@ -38,6 +38,7 @@ def base64_decode(full_encoded):
             with open(file, "wb") as f:
                 f.write(base64_decoded) #bytes
             base64_decoded, samplerate = sf.read(file) #numpy array
+            return base64_decoded
     else:
         #print(full_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #UklGRiTuAgBXQVZFZm...At84WACNZGwA=
