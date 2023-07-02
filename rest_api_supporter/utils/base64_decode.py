@@ -2,6 +2,7 @@ import base64
 import io
 from PIL import Image
 import soundfile as sf
+import os
 
 '''
 def base64_decode(full_encoded):
@@ -36,9 +37,12 @@ def base64_decode(full_encoded):
         elif "audio" in front: #오디오
             #return base64_decoded #bytes
             file = "audio.wav"
-            with open(file, "wb") as f:
-                f.write(base64_decoded) #bytes
-            base64_decoded, samplerate = sf.read(file) #numpy array
+            try:
+                with open(file, "wb") as f:
+                    f.write(base64_decoded) #bytes
+                base64_decoded, samplerate = sf.read(file) #numpy array
+            finally:
+                os.remove(file)
             return base64_decoded
     else:
         #print(full_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
