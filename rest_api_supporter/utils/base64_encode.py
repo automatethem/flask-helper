@@ -8,13 +8,21 @@ import os
 
 def base64_encode(image):
     if isinstance(image, Image.Image): #이미지
+        #'''
         bytes_io = io.BytesIO()
         image_format = image.format
         if not image_format:
             image_format = "PNG"
         image.save(bytes_io, image_format)
         bytes_value = bytes_io.getvalue()
-
+        #'''
+        '''
+        file = "image.png"
+        image.save(file)
+        with open(file, "rb") as f:
+            bytes_value = f.read() #bytes
+        '''
+        
         base64_encoded = base64.b64encode(bytes_value)
         base64_encoded = base64_encoded.decode("utf-8") 
 
