@@ -18,9 +18,12 @@ def base64_encode(image):
         #'''
         '''
         file = "image.png"
-        image.save(file)
-        with open(file, "rb") as f:
-            bytes_value = f.read() #bytes
+        try:
+            image.save(file)
+            with open(file, "rb") as f:
+                bytes_value = f.read() #bytes
+        finally:
+            os.remove(file)
         '''
         
         base64_encoded = base64.b64encode(bytes_value)
@@ -31,9 +34,12 @@ def base64_encode(image):
     elif isinstance(image, np.ndarray): #오디오
         numpy_array = image
         file = "audio.wav"
-        sf.write(file, numpy_array, samplerate=16000)
-        with open(file, "rb") as f:
-            bytes_value = f.read() #bytes
+        try:
+            sf.write(file, numpy_array, samplerate=16000)
+            with open(file, "rb") as f:
+                bytes_value = f.read() #bytes
+        finally:
+            os.remove(file)
         base64_encoded = base64.b64encode(bytes_value)
         base64_encoded = base64_encoded.decode("utf-8") 
      
