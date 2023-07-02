@@ -27,8 +27,8 @@ dataset = dataset.cast_column("audio", datasets.Audio(sampling_rate=16_000)) #ht
 array = dataset[0]["audio"]["array"] #numpy array
 #sampling_rate = dataset[0]["audio"]["sampling_rate"] #Wav2Vec2FeatureExtractor was trained using a sampling rate of 16000. Please make sure that the provided `raw_speech` input was sampled with 16000 and not 8000.
 sampling_rate = 16000
-base64 = base64_encode(array) 
-print(base64) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
+base64_encoded = base64_encode(array) 
+print(base64_encoded) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
 ```
 
 ### base64 decode
