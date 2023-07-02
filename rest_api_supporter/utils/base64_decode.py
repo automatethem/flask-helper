@@ -28,7 +28,7 @@ def base64_decode(full_encoded):
                              #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
         front = full_encoded.split('base64,')[0]
         base64_encoded = full_encoded.split('base64,')[1]
-        base64_decoded = base64.b64decode(base64_encoded)
+        base64_decoded = base64.b64decode(base64_encoded) #bytes
         if "image" in front: #이미지
             image = Image.open(io.BytesIO(base64_decoded))
             return image
@@ -42,6 +42,6 @@ def base64_decode(full_encoded):
     else:
         #print(full_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #UklGRiTuAgBXQVZFZm...At84WACNZGwA=
-        base64_decoded = base64.b64decode(full_encoded)
+        base64_decoded = base64.b64decode(full_encoded) #bytes
         image = Image.open(io.BytesIO(base64_decoded))
         return image
