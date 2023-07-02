@@ -7,6 +7,7 @@ import soundfile as sf
 import os
 
 def base64_encode(image):
+    print(type(image))
     if isinstance(image, Image.Image): #이미지
         #'''
         bytes_io = io.BytesIO()
@@ -28,7 +29,7 @@ def base64_encode(image):
 
         #return "data:image/png;base64,"+base64_encoded
         return "data:image/"+image_format.lower()+";base64,"+base64_encoded
-    elif isinstance(image, np.array): #오디오
+    elif isinstance(image, np.ndarray): #오디오
         numpy_array = image
         file = "audio.wav"
         sf.write(file, numpy_array, samplerate=16000)
