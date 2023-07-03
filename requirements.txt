@@ -1,4 +1,3 @@
 #pip install -r requirements.txt
-flask
-flask-ngrok
-pyngrok
+pillow
+soundfile
