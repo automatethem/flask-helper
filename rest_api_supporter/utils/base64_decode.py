@@ -25,7 +25,7 @@ def base64_decode(full_encoded):
                 os.remove(file)
             return base64_decoded
         elif "video" in front: #비디오
-            pass
+            return base64_decoded #bytes
     else:
         #print(full_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #UklGRiTuAgBXQVZFZm...At84WACNZGwA=
