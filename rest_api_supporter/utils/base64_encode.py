@@ -42,10 +42,10 @@ def base64_encode(image):
         base64_encoded = base64_encoded.decode("utf-8") 
      
         return "data:audio/wav;base64,"+base64_encoded
-    elif isinstance(image, bytes): #오디오
+    elif isinstance(image, bytes): #비디오
         bytes_value = image
 
         base64_encoded = base64.b64encode(bytes_value)
         base64_encoded = base64_encoded.decode("utf-8") 
      
-        return "data:audio/wav;base64,"+base64_encoded
+        return "data:video/mp4;base64,"+base64_encoded
