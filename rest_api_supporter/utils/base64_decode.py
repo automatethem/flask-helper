@@ -27,7 +27,7 @@ def base64_decode(full_encoded):
                 os.remove(file)
             return base64_decoded
         elif "video" in front: #비디오
-            base64_decoded = np.frombuffer(base64_decoded, np.uint8) #numpy array
+            #base64_decoded = np.frombuffer(base64_decoded, np.uint8) #numpy array
             #video = cv2.imdecode(base64_decoded, cv2.IMREAD_UNCHANGED)
             #cv2.imwrite("result.mp4", video)
             return base64_decoded
