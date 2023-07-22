@@ -3,6 +3,9 @@ import io
 from PIL import Image
 import soundfile as sf
 import os
+import base64
+import numpy as np
+import cv2
 
 def base64_decode(full_encoded):
     if isinstance(full_encoded, str) and "base64," in full_encoded:
@@ -15,7 +18,6 @@ def base64_decode(full_encoded):
             image = Image.open(io.BytesIO(base64_decoded))
             return image
         elif "audio" in front: #오디오
-            #return base64_decoded #bytes
             file = "audio.wav"
             try:
                 with open(file, "wb") as f:
@@ -25,7 +27,8 @@ def base64_decode(full_encoded):
                 os.remove(file)
             return base64_decoded
         elif "video" in front: #비디오
-            return base64_decoded #bytes
+            base64_decoded = np.frombuffer(base64_decoded, np.uint8) #numpy array
+            return base64_decoded
     else:
         #print(full_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #UklGRiTuAgBXQVZFZm...At84WACNZGwA=
