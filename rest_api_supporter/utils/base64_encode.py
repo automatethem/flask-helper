@@ -25,10 +25,8 @@ def base64_encode(image):
         finally:
             os.remove(file)
         '''
-        
         base64_encoded = base64.b64encode(bytes_value)
         base64_encoded = base64_encoded.decode("utf-8") 
-
         #return "data:image/png;base64,"+base64_encoded
         return "data:image/"+image_format.lower()+";base64,"+base64_encoded
     elif isinstance(image, np.ndarray): #오디오
