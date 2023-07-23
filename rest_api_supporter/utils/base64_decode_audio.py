@@ -14,9 +14,9 @@ def base64_decode_audio(base64_encoded, to="numpy"):
     #print(base64_encoded) #UklGRiTuAgBXQVZFZm...At84WACNZGwA=
     base64_decoded = base64.b64decode(base64_encoded) #bytes
 
-    if to = "bytes":
+    if to == "bytes":
         return base64_decoded
-    elif to = "numpy":
+    elif to == "numpy":
         file = "audio.wav"
         try:
             with open(file, "wb") as f:
