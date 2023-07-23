@@ -16,12 +16,12 @@ def base64_decode_image(base64_encoded):
     #print(base64_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
     base64_decoded = base64.b64decode(base64_encoded) #bytes
 
-    if to = "bytes":
+    if to == "bytes":
         return base64_decoded
-    elif to = "numpy":
+    elif to == "numpy":
         image = Image.open(io.BytesIO(base64_decoded))
         return np.array(image)
-    elif to = "image":
+    elif to == "image":
         image = Image.open(io.BytesIO(base64_decoded))
         return image
 
