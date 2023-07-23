@@ -2,8 +2,6 @@ import io
 import base64
 from PIL import Image
 import numpy as np
-import random
-import soundfile as sf
 import os
 
 def base64_encode_image(image):
