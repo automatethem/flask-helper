@@ -52,11 +52,23 @@ base64_encoded = base64_encode_video(video)
 
 ```
 from rest_api_supporter.utils.base64_decode_audio import base64_decode_audio
-base64_decoded = base64_decode_audio(audio)
+
+print(base64_encoded) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
+                     #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
+base64_decoded = base64_decode_audio(base64_encoded)
+print(type(base64_decoded)) #<class 'bytes'>
+                            #<class 'bytes'>
 ```
 ```
 from rest_api_supporter.utils.base64_decode_image import base64_decode_image
-base64_decoded = base64_decode_image(image)
+
+print(base64_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
+                     #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
+                     #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
+base64_decoded = base64_decode_image(base64_encoded)
+print(type(base64_decoded)) #<class 'PIL.JpegImagePlugin.JpegImageFile'>
+                            #<class 'bytes'>
+                            #<class 'PIL.JpegImagePlugin.JpegImageFile'>
 ```
 ```
 from rest_api_supporter.utils.base64_decode_video import base64_decode_video
