@@ -4,9 +4,9 @@ from PIL import Image
 import numpy as np
 
 #base64_decode_image(base64_encoded)
-#base64_decode_image(base64_encoded, target="image")
-#base64_decode_image(base64_encoded, target="numpy")
-#base64_decode_image(base64_encoded, target="bytes")
+#base64_decode_image(base64_encoded, to="image")
+#base64_decode_image(base64_encoded, to="numpy")
+#base64_decode_image(base64_encoded, to="bytes")
 def base64_decode_image(base64_encoded):
     if "base64," in base64_encoded:
         #print(base64_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
@@ -16,12 +16,12 @@ def base64_decode_image(base64_encoded):
     #print(base64_encoded) #/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
     base64_decoded = base64.b64decode(base64_encoded) #bytes
 
-    if target = "bytes":
+    if to = "bytes":
         return base64_decoded
-    elif target = "numpy":
+    elif to = "numpy":
         image = Image.open(io.BytesIO(base64_decoded))
         return np.array(image)
-    elif target = "image":
+    elif to = "image":
         image = Image.open(io.BytesIO(base64_decoded))
         return image
 
