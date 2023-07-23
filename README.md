@@ -36,7 +36,7 @@ file = "video.mp4"
 with open(file, "rb") as f:
     bytes_value = f.read() #bytes
 base64_encoded = base64_encode_video(bytes_value)
-print(base64_encoded)
+print(base64_encoded) #data:video/mp4;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
 ```
 
 ### base64_decode
