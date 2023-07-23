@@ -7,7 +7,7 @@ import numpy as np
 #base64_decode_image(base64_encoded, to="image")
 #base64_decode_image(base64_encoded, to="numpy")
 #base64_decode_image(base64_encoded, to="bytes")
-def base64_decode_image(base64_encoded):
+def base64_decode_image(base64_encoded, to="image"):
     if "base64," in base64_encoded:
         #print(base64_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
         front = base64_encoded.split('base64,')[0]
