@@ -31,7 +31,11 @@ print(base64_encoded) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
 ```
 ```
 from rest_api_supporter.utils.base64_encode_video import base64_encode_video
-base64_encoded = base64_encode_video(video)
+
+file = "video.mp4"
+with open(file, "rb") as f:
+    bytes_value = f.read() #bytes
+base64_encoded = base64_encode_video(bytes_value)
 ```
 
 ### base64_decode
