@@ -11,3 +11,8 @@ def base64_encode_video(video):
         base64_encoded = base64.b64encode(video)
         base64_encoded = base64_encoded.decode("utf-8") 
         return "data:video/mp4;base64,"+base64_encoded
+    elif isinstance(video, np.array):
+        bytes_value = video.tobytes()
+        base64_encoded = base64.b64encode(bytes_value)
+        base64_encoded = base64_encoded.decode("utf-8") 
+        return "data:video/mp4;base64,"+base64_encoded
