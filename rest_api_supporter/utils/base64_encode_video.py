@@ -6,11 +6,8 @@ import random
 import soundfile as sf
 import os
 
-def base64_encode_video(image):
-    if isinstance(image, bytes): #비디오
-        bytes_value = image
-
-        base64_encoded = base64.b64encode(bytes_value)
+def base64_encode_video(video):
+    if isinstance(video, bytes):
+        base64_encoded = base64.b64encode(video)
         base64_encoded = base64_encoded.decode("utf-8") 
-     
         return "data:video/mp4;base64,"+base64_encoded
