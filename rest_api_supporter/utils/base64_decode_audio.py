@@ -3,9 +3,9 @@ import soundfile as sf
 import os
 
 #base64_decode_audio(base64_encoded)
-#base64_decode_audio(base64_encoded, target="numpy")
-#base64_decode_audio(base64_encoded, target="bytes")
-def base64_decode_audio(base64_encoded, target="numpy"):
+#base64_decode_audio(base64_encoded, to="numpy")
+#base64_decode_audio(base64_encoded, to="bytes")
+def base64_decode_audio(base64_encoded, to="numpy"):
     if "base64," in base64_encoded:
         #print(base64_encoded) #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
         front = base64_encoded.split('base64,')[0]
@@ -14,9 +14,9 @@ def base64_decode_audio(base64_encoded, target="numpy"):
     #print(base64_encoded) #UklGRiTuAgBXQVZFZm...At84WACNZGwA=
     base64_decoded = base64.b64decode(base64_encoded) #bytes
 
-    if target = "bytes":
+    if to = "bytes":
         return base64_decoded
-    elif target = "numpy":
+    elif to = "numpy":
         file = "audio.wav"
         try:
             with open(file, "wb") as f:
