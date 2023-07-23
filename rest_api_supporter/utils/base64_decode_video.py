@@ -8,8 +8,9 @@ import numpy as np
 import cv2
 
 #base64_decode_video(base64_encoded)
+#base64_decode_video(base64_encoded, target="numpy")
 #base64_decode_video(base64_encoded, target="bytes")
-def base64_decode_video(base64_encoded, target="bytes"):
+def base64_decode_video(base64_encoded, target="numpy"):
     if "base64," in base64_encoded:
         #print(base64_encoded) #data:video/mp4;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
         front = base64_encoded.split('base64,')[0]
