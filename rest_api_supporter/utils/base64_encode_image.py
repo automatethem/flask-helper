@@ -9,7 +9,7 @@ def base64_encode_image(image):
         base64_encoded = base64.b64encode(image)
         base64_encoded = base64_encoded.decode("utf-8") 
         return "data:image/jpg;base64,"+base64_encoded
-    elif isinstance(image, np.array):
+    elif isinstance(image, np.ndarray):
         bytes_value = image.tobytes()
         base64_encoded = base64.b64encode(bytes_value)
         base64_encoded = base64_encoded.decode("utf-8") 
