@@ -44,3 +44,33 @@ print(type(base64_decoded)) #<class 'PIL.JpegImagePlugin.JpegImageFile'>
                             #<class 'bytes'>
                             #<class 'PIL.JpegImagePlugin.JpegImageFile'>
 ```
+
+### base64_encode
+
+```
+from rest_api_supporter.utils.base64_encode_audio import base64_encode_audio
+base64_encoded = base64_encode_audio(audio)
+```
+```
+from rest_api_supporter.utils.base64_encode_image import base64_encode_image
+base64_encoded = base64_encode_image(image)
+```
+```
+from rest_api_supporter.utils.base64_encode_video import base64_encode_video
+base64_encoded = base64_encode_video(video)
+```
+
+### base64_decode
+
+```
+from rest_api_supporter.utils.base64_decode_audio import base64_decode_audio
+base64_decoded = base64_decode_audio(audio)
+```
+```
+from rest_api_supporter.utils.base64_decode_image import base64_decode_image
+base64_decoded = base64_decode_image(image)
+```
+```
+from rest_api_supporter.utils.base64_decode_video import base64_decode_video
+base64_decoded = base64_decode_video(video)
+```
