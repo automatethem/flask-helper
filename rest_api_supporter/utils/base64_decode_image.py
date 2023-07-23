@@ -22,8 +22,9 @@ def base64_decode_image(base64_encoded):
 
     if target = "bytes":
         return base64_decoded
-    #elif target = "numpy":
-    
+    elif target = "numpy":
+        image = Image.open(io.BytesIO(base64_decoded))
+        return np.array(image)
     elif target = "image":
         image = Image.open(io.BytesIO(base64_decoded))
         return image
