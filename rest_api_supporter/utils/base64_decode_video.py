@@ -7,8 +7,8 @@ import base64
 import numpy as np
 import cv2
 
-def base64_decode(full_encoded):
-    if isinstance(full_encoded, str) and "base64," in full_encoded:
+def base64_decode_video(full_encoded):
+    if "base64," in full_encoded:
         #print(full_encoded) #data:image/png;base64,/9j/4AAQSkZJRgABAQ...2qjR37P/2Q==
                              #data:audio/wav;base64,UklGRiTuAgBXQVZFZm...At84WACNZGwA=
         front = full_encoded.split('base64,')[0]
