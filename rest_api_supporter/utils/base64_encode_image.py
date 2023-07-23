@@ -7,7 +7,16 @@ import soundfile as sf
 import os
 
 def base64_encode_image(image):
-    if isinstance(image, Image.Image): #이미지
+    if isinstance(image, bytes): 
+        base64_encoded = base64.b64encode(image)
+        base64_encoded = base64_encoded.decode("utf-8") 
+        return "data:image/jpg;base64,"+base64_encoded
+    elif isinstance(image, np.array):
+        bytes_value = image.tobytes()
+        base64_encoded = base64.b64encode(bytes_value)
+        base64_encoded = base64_encoded.decode("utf-8") 
+        return "data:image/jpg;base64,"+base64_encoded
+    elif isinstance(image, Image.Image): 
         #'''
         bytes_io = io.BytesIO()
         image_format = image.format
@@ -29,4 +38,3 @@ def base64_encode_image(image):
         base64_encoded = base64_encoded.decode("utf-8") 
         #return "data:image/png;base64,"+base64_encoded
         return "data:image/"+image_format.lower()+";base64,"+base64_encoded
-    
