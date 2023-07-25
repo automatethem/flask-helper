@@ -20,4 +20,9 @@ def base64_encode_audio(audio):
         base64_encoded = base64.b64encode(bytes_value)
         base64_encoded = base64_encoded.decode("utf-8") 
         return "data:audio/wav;base64,"+base64_encoded
-
+    elif isinstance(audio, str): 
+        with open(audio, "rb") as f:
+            bytes_value = f.read() #bytes
+        base64_encoded = base64.b64encode(bytes_value)
+        base64_encoded = base64_encoded.decode("utf-8") 
+        return "data:audio/wav;base64,"+base64_encoded
