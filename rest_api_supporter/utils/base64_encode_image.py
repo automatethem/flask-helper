@@ -36,3 +36,9 @@ def base64_encode_image(image):
         base64_encoded = base64_encoded.decode("utf-8") 
         #return "data:image/png;base64,"+base64_encoded
         return "data:image/"+image_format.lower()+";base64,"+base64_encoded
+    elif isinstance(image, str): 
+        with open(image, "rb") as f:
+            bytes_value = f.read() #bytes
+        base64_encoded = base64.b64encode(bytes_value)
+        base64_encoded = base64_encoded.decode("utf-8") 
+        return "data:image/jpg;base64,"+base64_encoded
